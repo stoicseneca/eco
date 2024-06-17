@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* NAVBAR */
+header img {
+    position: absolute; /* Posicionar la imagen de forma absoluta */
+    right: 90%; /* Posicionar la imagen a la derecha del header */  
+    width: 50px;
+    height: 90px;
+    top: 2%;
+}
+
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 10px;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+  
+.navbar-brand.me-auto{
+    font-weight: 500;
+    color: #8dac83;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+  
+.login-button{
+    background-color: #8dac83;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+  
+.login-button:hover{
+    background-color: #152506;
+}
+  
+.navbar-toggler.pe-0{
+    border: #fff;
+    font-size: 3rex
+}
+  
+.navbar-toggler:focus, .btn-close.p-3:focus{
+    box-shadow: none;
+    outline: none;
+}
+  
+.nav-item{
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+  
+.nav-link:hover, .nav-link.action{
+    color: #000;
+}
+  
+@media (min-width: 991px){
+    .nav-link::before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #8dac83;
+      visibility: hidden;
+      transition: 0.3s ease-in-out;
+    }
+  
+    .nav-link:hover::before, .nav-link.PR::before{
+      width: 90%;
+      visibility: visible;
+    }
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: #dfeedb;
+  --container-color: hsl(0, 0%, 95%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Fredoka", sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+
+
+/*=============== CARD ===============*/
+.container1{
+    display: grid;
+    place-items: center;
+    margin-inline: auto;
+    padding-block: 8rem;
+    background-color: #caddb8;
+    
+}
+
+.card__container{
+    display: flex;
+    row-gap: 3.5rem;
+    padding: 0;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.card__article{
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-basis: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__location{
+    width: 320px;
+    height: 280px;
+    border-radius: 1.5rem;
+    
+}
+
+.card__data{
+    width: 280px;
+    background-color: var(--container-color);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+    border-radius: 1rem;
+    position: absolute;
+    bottom: -8rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0; 
+    transition: opacity 1s 1s;
+}
+
+.card__description{
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: .25rem;
+}
+
+.card__title{
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    color: var(--title-color);
+    margin-bottom: .75rem;
+}
+
+.card__button{
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    color: var(--first-color);
+}
+
+.card__button:hover{
+    text-decoration: underline;
+}
+
+.card__article:not(:hover){
+    animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data{
+    animation: remove-data 1s forwards;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card__article:hover{
+    animation: remove-overflow 2s forwards;
+}
+
+/* Card animation */   
+@keyframes show-data{
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(-7rem);
+    }
+}
+
+@keyframes remove-overflow{
+    to{
+        overflow: initial;
+    }
+}
+
+@keyframes remove-data{
+    0%{
+        transform: translateY(-7rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(.5rem);
+    }
+}
+
+@keyframes show-overflow{
+    0%{
+        overflow: initial;
+        pointer-events: none;
+    }
+    50%{
+        overflow: hidden;
+    }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px){
+    .container{
+        margin-inline: 1rem;
+    }
+
+    .card__data{
+        width: 250px;
+        padding: 1rem;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px){
+    .card__container{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+}
+
+/* For large devices */
+@media screen and (main-width: 1120px){
+    .container{
+        height: 100vh;
+    }
+
+    .card__container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card__location{
+        width: 348px;
+    }
+
+    .card__data{
+        width: 316px;
+        padding-inline: 2.5rem;
+    }
+}
+
+
+  

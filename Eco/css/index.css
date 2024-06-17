@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* NAVBAR */
+header img {
+    position: absolute; /* Posicionar la imagen de forma absoluta */
+    right: 90%; /* Posicionar la imagen a la derecha del header */  
+    width: 50px;
+    height: 90px;
+    top: 2%;
+}
+
+.navbar{
+  background-color: #d7e4cb;
+  height: 80px;
+  margin: 10px;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+
+.navbar-brand.me-auto{
+  font-weight: 500;
+  color: #8dac83;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+
+.login-button{
+  background-color: #8dac83;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+.login-button:hover{
+  background-color: #152506;
+}
+
+.navbar-toggler.pe-0{
+  border: #fff;
+  font-size: 3rex
+}
+
+.navbar-toggler:focus, .btn-close.p-3:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-item{
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.action{
+  color: #000;
+}
+
+@media (min-width: 991px){
+  .nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #8dac83;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before, .nav-link.active::before{
+    width: 90%;
+    visibility: visible;
+  }
+}
+
+  
+
+
+
+
+
+
+.wwa{
+  color: #000000; /* Color del texto de los enlaces */
+  text-decoration: none; /* Eliminar decoración de texto predeterminada */
+  padding: 10px 15px; /* Agregar relleno a los enlaces */
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  padding: 50px 100px; 
+  background-image: url(/img/Ellipse\ 1.svg);
+  background-size: 400%;
+  background-position-x: center; 
+}
+
+
+
+.wwa h1{
+  padding: 0px 0px; 
+}
+
+/*Footer*/
+
+.fuentef{
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+}
+.position{
+  position: relative;
+  left: 75%;
+}
